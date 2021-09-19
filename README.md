@@ -1,8 +1,6 @@
 # Basic yet complete Machine Learning pipeline for NLP tasks
 
-This repository accompanies the article
-(TODO: add link)
-on building basic yet complete ML pipelines for solving NLP tasks.
+This repository accompanies [the article](https://medium.com/@isenilov/complete-machine-learning-pipeline-for-nlp-tasks-f39f8b395c0d) on building basic yet complete ML pipelines for solving NLP tasks.
 
 ## Requirements
 
