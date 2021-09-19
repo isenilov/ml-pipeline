@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  mail:
+    image: greenmail/standalone:1.6.5
+    ports:
+      - "3025:3025" # : SMTP
+      - "3110:3110" # : POP3
+      - "3143:3143" # : IMAP
+      - "3465:3465" # : SMTPS
+      - "3993:3993" # : IMAPS
+      - "3995:3995" # : POP3s
+      - "8080:8080" # : GreenMail API
+
+  db:
+    image: postgres:10
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+      - APP_DB_USER=pguser
+      - APP_DB_PASS=password
+      - APP_DB_NAME=maildb
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-U", "root" ]
+      timeout: 60s
+      interval: 10s
+      retries: 10
+    deploy:
+      placement:
+        max_replicas_per_node: 1
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+      # copy the sql script to create tables
+      - ./db:/docker-entrypoint-initdb.d/
+
+  prediction-worker:
+    build:
+      context: ./prediction-worker
+    ports:
+      - "1390:1390"
+
+  orchestrator:
+    build:
+      context: ./orchestrator
+    depends_on:
+      - mail
+      - db
