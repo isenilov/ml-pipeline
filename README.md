@@ -10,7 +10,7 @@ on building basic yet complete ML pipelines for solving NLP tasks.
 
 [telnet](https://www.unix.com/man-page/linux/1/telnet/)
 
-Please google installation instructions for your system if needed.
+Please refer to installation instructions for your system if needed.
 
 ## Running the pipeline
 
@@ -32,7 +32,7 @@ Connecting to the IMAP mail server:
 Sending the email with telnet:
 ```
 EHLO user
-MAIL FROM:<from@19ft.com>
+MAIL FROM:<example@some-domain.com>
 RCPT TO:<user>
 DATA
 Subject: Hello World
