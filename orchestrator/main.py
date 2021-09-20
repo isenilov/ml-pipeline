@@ -29,4 +29,4 @@ with psycopg2.connect(
             id = cur.fetchone()[0]
             conn.commit()
             cur.close()
-            print(f"Recoded to DB with id={id}: {labels.json()}")
+            print(f"Recorded to DB with id={id}: {labels.json()}")

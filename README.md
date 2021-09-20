@@ -46,7 +46,7 @@ If everything went well, something like this should appear in logs:
 ```
 orchestrator_1                   | Polling mailbox...
 prediction-worker_1              | INFO:     172.19.0.5:55294 - "POST /predict HTTP/1.1" 200 OK
-orchestrator_1                   | Recoded to DB with id=34: [{'entity_text': 'Apple', 'start': 24, 'end': 29}, {'entity_text': 'Microsoft', 'start': 58, 'end': 67}]
+orchestrator_1                   | Recorded to DB with id=34: [{'entity_text': 'Apple', 'start': 24, 'end': 29}, {'entity_text': 'Microsoft', 'start': 58, 'end': 67}]
 ```
 
 ### Checking the result
