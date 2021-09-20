@@ -16,7 +16,7 @@ async def ping() -> Dict:
 
 @app.post("/predict")
 def predict(inp: Input) -> List[PredictedEntity]:
-    """ Return embedding of a document given its body """
+    """ Return extracted entities from the document given its body """
 
     # The code below is definitely not production-ready but rather quick implementation to show working server
     # In the real prod system it would make sense to implement batching
